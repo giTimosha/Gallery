@@ -32,14 +32,11 @@ class PhotoCreateView(CreateView):
     template_name = 'product/create.html'
     form_class = PhotoForm
     success_url = reverse_lazy('webapp:index')
-    # permission_required = 'webapp.add_product'
-    # permission_denied_message = '403 Доступ запрещён!'
 
 
 class PhotoUpdateView(UpdateView):
     model = Photo
     template_name = 'product/update.html'
-    # form_class = PhotoForm
     fields = ('pictures', 'text')
     context_object_name = 'update'
 

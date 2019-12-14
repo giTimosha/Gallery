@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Gallery{% endblock %}
+{% block content %}
+    <h1 class="text-center">Gallery</h1>
+    <div class="row">
+        {% for phot in photo %}
+            <div class="card">
+            {% if phot.pictures %}
+                <div class="card" style="width: 18rem;">
+                <img src="{{ phot.pictures.url }}" class="card-img-top" alt="...">
+            {% endif %}
+    <div class="card-body">
+                <p class="card-text">{{ phot.text }}</p>
+                <p class="card-text">{{ phot.author_name }}</p>
+            </div>
+    <div class="card-footer">
+      <small class="text-muted">{{ phot.created_at }}</small>
+    </div>
+            <a href="{% url 'webapp:detail' phot.pk %}" class="btn btn-primary">More</a>
+            <a href="{% url 'webapp:update' phot.pk %}" class="btn btn-success">Update</a>
+            <a href="{% url 'webapp:delete' phot.pk %}" class="btn btn-danger">Delete</a>
+
+    {% endfor %}
+
+    </div>
+    <br/>
+{% endblock %}

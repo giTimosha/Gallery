@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.urls import reverse_lazy
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'webapp',
     'api_v1',
+    'widget_tweaks',
 
 ]
 
@@ -123,6 +126,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = 'uploads'
+
+
+LOGIN_REDIRECT_URL = reverse_lazy('webapp:index')
+LOGOUT_REDIRECT_URL = reverse_lazy('webapp:index')
 
 
 REST_FRAMEWORK = {

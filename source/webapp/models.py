@@ -12,7 +12,7 @@ class Photo(models.Model):
                                     null=True, blank=True, max_length=50, verbose_name='Автор фотки')
 
     def __str__(self):
-        return self.author_name
+        return self.text
 
 
 class Comments(models.Model):

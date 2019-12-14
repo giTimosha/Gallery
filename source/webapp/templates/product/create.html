@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 class="text-center">Добавление Фото</h1>
+    <form action="{% url "webapp:create" %}" method="POST" enctype="multipart/form-data">
+        {% include 'partial/form.html' %}
+        <input type="submit" value="Create" class="btn btn-primary">
+    </form>
+{% endblock %}
